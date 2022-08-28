@@ -1,0 +1,107 @@
+.library-empty__title {
+  max-width: 220px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  //   letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 40px;
+  }
+}
+
+.library-empty__tumb {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  background-image: url('../images/library/mobile/library-empty-280.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('../images/library/mobile/library-empty-280@2x.jpg');
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+    background-image: url('../images/library/tablet/library-empty-704.jpg');
+    height: 442px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/library/tablet/library-empty-704@2x.jpg');
+    }
+  }
+}
+
+.library-empty__btn {
+  // padding: 13px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 44px;
+
+  font-weight: 400;
+
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: var(--white-text);
+  background-color: #222222;
+  border: none;
+
+  @media screen and (min-width: $tablet) {
+    width: 152px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 147px;
+    height: 42px;
+  }
+}
+
+.library-empty__btn:hover {
+  color: #222222;
+  background-color: transparent;
+  border: 1px solid #222222;
+
+  font-weight: 500;
+}
+
+@media screen and (min-width: $tablet) {
+  .library-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+  }
+
+  .library-empty__title {
+    max-width: 320px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .library-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 16px;
+  }
+}

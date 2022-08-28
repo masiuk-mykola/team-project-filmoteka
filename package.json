@@ -1,0 +1,34 @@
+{
+  "name": "filmoteka-team-project",
+  "version": "2.0.0",
+  "description": "",
+  "homepage": "https://masiuk-mykola.github.io/filmoteka-team-project",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /filmoteka-team-project/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masiuk-mykola/filmoteka-team-project.git"
+  },
+  "keywords": [],
+  "author": "Mykola Masiuk <masiuk.mykola@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masiuk-mykola/filmoteka-team-project/issues"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.5"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.6.0",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}
