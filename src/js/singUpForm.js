@@ -20,13 +20,13 @@ const auth = getAuth(app);
 const inputEmail = document.querySelector('input[name="email"]');
 const inputPassword = document.querySelector('input[name="password"]');
 const btnSignUpEl = document.querySelector('.js-up');
-const backdropEl = document.querySelector('.sing-up-form-backdrop');
+const backdropSingUpEl = document.querySelector('.sing-up-form-backdrop');
 const closeModalBtn = document.querySelector(".sing-up-modal__btn-close");
 
 btnSignUpEl.addEventListener('click', onClickSignUpBtn);
 
 function onClickSignUpBtn() {
-    backdropEl.classList.remove('is-hidden');
+    backdropSingUpEl.classList.remove('is-hidden');
     const formEl = document.querySelector('.sing-up-form');
     formEl.addEventListener('submit', handleSubmitButtonClick, {once: true});
 }
@@ -35,9 +35,9 @@ function handleSubmitButtonClick(event) {
     event.preventDefault();
 
     let email = inputEmail.value;
-    // console.log(email);
+    console.log(email);
     let password = inputPassword.value;
-    // console.log(password);
+    console.log(password);
 
 createUserWithEmailAndPassword(auth, email, password)
  .then((userCredential) => {
@@ -45,8 +45,8 @@ createUserWithEmailAndPassword(auth, email, password)
     const user = userCredential.user;
     console.log (user);
     Notiflix.Notify.success('Registration completed successfully');
-    backdropEl.classList.add('is-hidden');
-    
+    backdropSingUpEl.classList.add('is-hidden');
+        
      // ...
 })
 .catch((error) => {
@@ -68,5 +68,5 @@ Notiflix.Notify.warning('Password should be at least 6 characters');}
 
 closeModalBtn.addEventListener('click', toggleModal);
 function toggleModal() {
-backdropEl.classList.toggle("is-hidden");
+backdropSingUpEl.classList.toggle("is-hidden");
 }
