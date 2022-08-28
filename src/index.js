@@ -4,6 +4,7 @@ import './js/footerModal';
 import './js/modalMovieMarkup';
 import './js/getfullMovieInfo';
 import { onSearchFormSubmit } from './js/search';
+import './js/singUpForm';
 
 const KEY = 'b580e55a4551b421271bf131dd03ab39';
 
