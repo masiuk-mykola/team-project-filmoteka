@@ -41,6 +41,17 @@
     margin-left: 10px;
 }
 
+.film-list__item-vote {
+    padding: 1px 10px;
+    margin-left: 10px;
+    color: var(--white-text);
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
 //MOBILE
 @media screen and (max-width: 767px) {
     .film-list__item:not(:last-child) {
