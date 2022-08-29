@@ -4,7 +4,8 @@ import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from 'firebase/auth';
 
 // Initialize Firebase
@@ -24,6 +25,9 @@ const inputSingInEmail = document.querySelector('input[name="sing-in-email"]');
 const inputSingInPassword = document.querySelector(
   'input[name="sing-in-password"]'
 );
+const btnSignUpEl = document.querySelector('.js-up');
+const btnSignOutEl = document.querySelector('.js-out');
+// console.log(btnSignOutEl);
 
 btnSingInEl.addEventListener('click', onClickSingInBtn);
 
@@ -49,15 +53,53 @@ function onSingInFormSubmit(event) {
       console.log(user);
       Notiflix.Notify.success('You are logged into your account');
       backdropSingInEl.classList.add('is-hidden');
+    //   btnSingInEl.classList.add('is-hidden');
+    //   btnSignUpEl.classList.add('is-hidden');
+    //   btnSignOutEl.classList.remove('is-hidden');
+// for library
+// const libraryLinkEl = document.querySelector('.library-link-for-sing');
+// libraryLinkEl.classList.remove('is-hidden');
+
+   
       // ...
     })
     .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
+
+    onAuthStateChanged(auth, (user) => {
+        if (user !== null) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          console.log(uid);
+          // ...
+        } else {
+            localStorage.removeItem('uid');
+          // User is signed out
+          // ...
+        }
+      });
+   
 }
+
 
 closeModalBtn.addEventListener('click', toggleModal);
 function toggleModal() {
   backdropSingInEl.classList.toggle('is-hidden');
 }
+
+btnSignOutEl.addEventListener('click', onClickSingOutBtn);
+
+function onClickSingOutBtn(){
+    signOut(auth);
+    Notiflix.Notify.info("You're sing out.");
+}
+
+
+
+// export declare function signOut(auth: Auth): Promise<void>;
+
+
+

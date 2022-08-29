@@ -228,11 +228,13 @@
 .link__list {
   @media screen and (min-width: $tablet) {
     display: flex;
+    justify-content: flex-end;
     gap: 40px;
   }
 
   @media screen and (min-width: $desktop) {
     display: flex;
+    justify-content: flex-end;
     gap: 40px;
   }
 }

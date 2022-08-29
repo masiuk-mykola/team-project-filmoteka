@@ -44,29 +44,43 @@ createUserWithEmailAndPassword(auth, email, password)
     // Signed in 
     const user = userCredential.user;
     console.log (user);
-    Notiflix.Notify.success('Registration completed successfully');
+    Notiflix.Notify.success('Registration completed successfully! Please, sing in!');
     backdropSingUpEl.classList.add('is-hidden');
+    if (user) {
+        inputEmail.value = '';
+        inputPassword.value = '';
+        btnSignUpEl.classList.add('is-hidden');
+    }
         
      // ...
 })
 .catch((error) => {
+    console.log('error', error);
+    console.log('error.code', error.code);
+    console.log('error.message', error.message);
 if (error.message === 'Firebase: Error (auth/invalid-email).') {
 Notiflix.Notify.warning('Ivalid email. Please, try again!');}
 else if (
  error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'
 ) {
 Notiflix.Notify.warning('Password should be at least 6 characters');}
-// else if (
-//   error.message === 'Firebase: Error (auth/email-already-in-use).'
-// ) {
-//   alert('such mail already exists. Please sign in');}
-// const errorCode = error.code;
-// const errorMessage = error.message;
-// ..
-});
+else if (
+ error.message === 'Firebase: Error (auth/email-already-in-use).'
+) {
+    Notiflix.Notify.warning('Such mail already exists. Please sign in');}
+else {
+    Notiflix.Notify.warning('Registration error. Try again');
+    }
+})
 }
 
 closeModalBtn.addEventListener('click', toggleModal);
 function toggleModal() {
+    inputEmail.value = '';
+    inputPassword.value = '';
 backdropSingUpEl.classList.toggle("is-hidden");
 }
+
+// function finallyForSingUp () {
+//     console.log(email, password);
+// }

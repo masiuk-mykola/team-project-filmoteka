@@ -5,6 +5,8 @@ import {
 } from './localStorage';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
+import './singUpForm';
+import './singInForm';
 
 
 const KEY_Q = 'queueKey';
