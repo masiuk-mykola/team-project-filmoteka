@@ -18,8 +18,10 @@ function removeLocalStorage(key) {
   return localStorage.removeItem(key);
 }
 
-export {
-  saveLocalStorage,
-  loadLocalStorage,
-  removeLocalStorage,
-};
+export { saveLocalStorage, loadLocalStorage, removeLocalStorage };
+
+// export default {
+//   saveLocalStorage,
+//   loadLocalStorage,
+//   removeLocalStorage,
+// };

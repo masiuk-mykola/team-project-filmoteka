@@ -1,6 +1,6 @@
 import getMoviesApi from './getMoviesApi';
 import modalMarkupApi from './modalMovieMarkup';
-import local from './localStorage';
+import * as local from './localStorage';
 import { moviesGallery } from './moviesMarkup';
 import {
   isOpenModal,
