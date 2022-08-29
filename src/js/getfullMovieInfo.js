@@ -18,6 +18,7 @@ function onMovieCardClick(evt) {
   evt.preventDefault();
   clearModal();
   isOpenModal();
+  document.body.style.overflow = 'hidden';
   setCloseOptionModal();
   if (!evt.target.closest('li')) {
     return;
