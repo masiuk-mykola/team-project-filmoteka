@@ -41,6 +41,7 @@ function modalFooterClick(e) {
 
 closeModalButton.addEventListener("click", function() {
     modalFooter.classList.add('is-hidden');
+    bodyElFooter.classList.remove('no-scroll-footer');
 });
 
 function closeModalFooter() {

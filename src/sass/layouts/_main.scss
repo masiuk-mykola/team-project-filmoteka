@@ -1,5 +1,8 @@
+main {
+    min-height: calc(100vh - 299px);
+}
 .film_list {
-    padding: 20px 0;
+    margin: 20px 0;
 }
 
 .film-list__item {
@@ -41,6 +44,17 @@
     margin-left: 10px;
 }
 
+.film-list__item-vote {
+    padding: 1px 10px;
+    margin-left: 10px;
+    color: var(--white-text);
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
 //MOBILE
 @media screen and (max-width: 767px) {
     .film-list__item:not(:last-child) {
@@ -54,7 +68,7 @@
         display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 32px;
-            padding: 60px 0;
+            margin: 60px 0;
             justify-content: center;
     }
 
@@ -70,7 +84,6 @@
             grid-template-columns: repeat(3, 1fr);
             row-gap: 32px;
             column-gap: 16px;
-            padding: 60px 0;
             justify-content: center;
         }
     

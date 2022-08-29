@@ -1,6 +1,6 @@
 import getMoviesApi from './getMoviesApi';
 import modalMarkupApi from './modalMovieMarkup';
-import local from './localStorage';
+import * as local from './localStorage';
 import { moviesGallery } from './moviesMarkup';
 import {
   isOpenModal,
@@ -34,8 +34,30 @@ function onMovieCardClick(evt) {
     modalMarkup.id = films.id;
 
     const watchedBtn = document.querySelector('.ls-watched');
-    const queueBtn = document.querySelector('.ls-queue');
+
+    if (watchedIdList.length === -1) {
+      return;
+    } else {
+      watchedIdList.forEach(element => {
+        if (element.id === modalMarkup.id) {
+          watchedBtn.textContent = 'Remove from watched';
+        }
+      });
+    }
+
     watchedBtn.addEventListener('click', addWatchedBtn);
+
+    const queueBtn = document.querySelector('.ls-queue');
+
+    if (queueIdList.length === -1) {
+      return;
+    } else {
+      queueIdList.forEach(element => {
+        if (element.id === modalMarkup.id) {
+          queueBtn.textContent = 'Remove from queue';
+        }
+      });
+    }
     queueBtn.addEventListener('click', addQueueBtn);
   });
 }
