@@ -85,6 +85,7 @@ export default class modalMarkupApi {
 
 export function isOpenModal() {
   modalWindowEl.classList.add('modal-open');
+  document.getElementById('backToTop').style.display = 'none';
 }
 
 export function clearModal() {
