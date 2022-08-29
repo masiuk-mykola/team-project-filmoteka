@@ -44,12 +44,12 @@ function libraryMarkup(nameKey) {
     libraryEmptyMarkup();
     console.log('Поставлена инфо что библиотека пустая');
     return;
+  } else {
+    const elementUl = '<ul class="library-list"></ul>';
+    myLibrary.insertAdjacentHTML('beforeend', elementUl);
+    const moviesGallery = document.querySelector('.library-list');
+    appendMoviesMarkup(nameKey);
   }
-
-  const elementUl = '<ul class="library-list"></ul>';
-  myLibrary.insertAdjacentHTML('beforeend', elementUl);
-  const moviesGallery = document.querySelector('.library-list');
-  appendMoviesMarkup(nameKey);
 }
 
 function libraryEmptyMarkup() {
