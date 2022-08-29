@@ -3,7 +3,6 @@ import { clickCloseModal } from './closeEscModal';
 const modalWindowEl = document.querySelector('.backdrop');
 const bodyEl = document.querySelector('body');
 
-
 export default class modalMarkupApi {
   constructor() {
     this.title = '';
@@ -88,6 +87,7 @@ export default class modalMarkupApi {
 
 export function isOpenModal() {
   modalWindowEl.classList.add('modal-open');
+  document.getElementById('backToTop').style.display = 'none';
 }
 
 export function clearModal() {
