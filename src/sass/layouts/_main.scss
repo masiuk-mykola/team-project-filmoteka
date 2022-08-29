@@ -1,5 +1,5 @@
 .film_list {
-    padding: 20px 0;
+    margin: 20px 0;
 }
 
 .film-list__item {
@@ -54,7 +54,7 @@
         display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 32px;
-            padding: 60px 0;
+            margin: 60px 0;
             justify-content: center;
     }
 
@@ -70,7 +70,6 @@
             grid-template-columns: repeat(3, 1fr);
             row-gap: 32px;
             column-gap: 16px;
-            padding: 60px 0;
             justify-content: center;
         }
     
