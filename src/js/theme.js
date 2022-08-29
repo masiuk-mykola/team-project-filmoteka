@@ -6,7 +6,6 @@ GREY: "grey-background-theme",
 
 const body = document.querySelector("body");
 const footer = document.querySelector("footer");
-const modal = document.querySelector(".modal-wrap");
 
 const delClassElem = () => {
     body.classList.remove(Theme.LIGHT, Theme.DARK);
