@@ -5,7 +5,7 @@ import {
 } from './localStorage';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
-
+import './footerModal';
 
 const KEY_Q = 'queueKey';
 const KEY_W = 'watchedKey';
