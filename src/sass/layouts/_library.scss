@@ -31,9 +31,9 @@
   background-size: contain;
 
   @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: url('../images/library/mobile/library-empty-280@2x.jpg');
   }
 
@@ -43,8 +43,8 @@
     height: 442px;
 
     @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: url('../images/library/tablet/library-empty-704@2x.jpg');
     }
   }
