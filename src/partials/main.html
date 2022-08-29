@@ -1,6 +1,65 @@
 <main>
   <section class="container">
+    <div class="sing-up-form-backdrop is-hidden">
+      <div class="sing-up-modal">
+        <button class="sing-up-modal__btn-close" type="button">
+          <svg class="modal__btn-icon" width="18" height="18">
+            <use href="./images/sprite.svg#icon-close-btn"></use>
+          </svg>
+        </button>
+        <form class="sing-up-form">
+          <label class="sing-up-form__label">
+            Email
+            <input
+              class="sing-up-form__input"
+              type="text"
+              name="email"
+              required
+            />
+          </label>
+          <label class="sing-up-form__label">
+            Password
+            <input
+              class="sing-up-form__input"
+              type="text"
+              name="password"
+              required
+            />
+          </label>
+          <button class="btn sing-up-form__btn" type="submit">Sing up</button>
+        </form>
+      </div>
+    </div>
+    <div class="sing-in-form-backdrop is-hidden">
+      <div class="sing-in-modal">
+        <button class="sing-in-modal__btn-close" type="button">
+          <svg class="modal__btn-icon" width="18" height="18">
+            <use href="./images/sprite.svg#icon-close-btn"></use>
+          </svg>
+        </button>
+        <form class="sing-in-form">
+          <label class="sing-in-form__label">
+            Email
+            <input
+              class="sing-in-form__input"
+              type="text"
+              name="sing-in-email"
+              required
+            />
+          </label>
+          <label class="sing-in-form__label">
+            Password
+            <input
+              class="sing-in-form__input"
+              type="text"
+              name="sing-in-password"
+              required
+            />
+          </label>
+          <button class="btn sing-in-form__btn" type="submit">Sing in</button>
+        </form>
+      </div>
+    </div>
     <ul class="film_list"></ul>
   </section>
 </main>
-
