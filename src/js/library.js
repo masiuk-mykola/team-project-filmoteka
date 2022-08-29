@@ -1,5 +1,6 @@
 // import './localStorage';
-import { loadLocalStorage } from './localStorage';
+// import { loadLocalStorage } from './localStorage';
+import local from './localStorage';
 
 import { appendMoviesMarkup } from './moviesMarkup';
 
@@ -7,8 +8,8 @@ const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
 const myLibrary = document.querySelector('.library__container');
 
-const queueKey = loadLocalStorage('queueKey');
-const watchedKey = loadLocalStorage('watchedKey');
+const queueKey = local.loadLocalStorage('queueKey');
+const watchedKey = local.loadLocalStorage('watchedKey');
 
 watchedBtn.addEventListener('click', handleRenderWatchedClick);
 queueBtn.addEventListener('click', handleRenderQueueClick);
