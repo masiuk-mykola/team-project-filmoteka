@@ -1,4 +1,5 @@
-import './localStorage';
+// import './localStorage';
+import { loadLocalStorage } from './localStorage';
 
 import { appendMoviesMarkup } from './moviesMarkup';
 
