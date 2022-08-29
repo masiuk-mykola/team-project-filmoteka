@@ -38,8 +38,8 @@
     margin-right: 5px;
     margin-top: -40px;
     
-    @media screen and (max-width: 479px) {
-        margin-right: -55px;
+    @media screen and (min-width: 480px) {
+        margin-right: -20px;
         }
 }
 .theme-switch-icon {
