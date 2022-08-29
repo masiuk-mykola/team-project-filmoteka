@@ -1,8 +1,5 @@
-import { clickCloseModal } from './closeEscModal';
-
 const modalWindowEl = document.querySelector('.backdrop');
 const bodyEl = document.querySelector('body');
-
 
 export default class modalMarkupApi {
   constructor() {
@@ -33,8 +30,8 @@ export default class modalMarkupApi {
          <button type="button" class="btn-close_modal">
         <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="14"
-        height="14"
+        width="25"
+        height="25"
         fill="currentColor"
         class="bi bi-x-lg"
         viewBox="0 0 16 16"
@@ -97,29 +94,18 @@ export function clearModal() {
 // ф-ція закриття модалки
 
 export function setCloseOptionModal() {
-  modalWindowEl.addEventListener('click', clickCloseModal);
   modalWindowEl.addEventListener('click', e => {
     if (e.target.nodeName == 'BUTTON') {
       return;
     }
     modalWindowEl.classList.remove('modal-open');
+    document.body.style.overflow = '';
   });
 }
 
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
     modalWindowEl.classList.remove('modal-open');
+    document.body.style.overflow = '';
   }
 });
-
-// ф-ція скролу
-
-// export function noScrollBody() {
-//   document.body.style.position = 'fixed';
-//   document.body.style.top = `-${window.scrollY}px`;
-// }
-
-// function scrollBody() {
-//   document.body.style.position = '';
-//   window.scrollTo(0, parseInt(scrollY || '0') * -1);
-// }

@@ -1,10 +1,5 @@
 // основні стилі
 
-.no-scroll {
-  position: fixed;
-  overflow: auto;
-}
-
 .backdrop.modal-open {
   pointer-events: all;
   opacity: 1;
@@ -73,8 +68,8 @@
 // стилі всередині модального вікна
 
 .btn-close_modal {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   color: var(--main-text);
   background: var(--white-text);
