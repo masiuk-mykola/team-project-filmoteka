@@ -30,6 +30,7 @@ const loadLs = key => {
   }
 };
 
+
 if (!loadLs('total-pages')) {
   saveLs('total-pages', 1000);
 }
