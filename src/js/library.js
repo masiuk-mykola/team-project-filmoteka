@@ -7,6 +7,8 @@ import './theme';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
 import './footerModal';
+import './modalMovieMarkup';
+import './getfullMovieInfo';
 
 const KEY_Q = 'queueKey';
 const KEY_W = 'watchedKey';
@@ -55,9 +57,9 @@ function libraryMarkup(nameKey) {
     return;
   }
 
-  const elementUl = '<ul class="library-list"></ul>';
-  myLibrary.insertAdjacentHTML('beforeend', elementUl);
-  const labraryList = document.querySelector('.library-list');
+  // const elementUl = '';
+  // myLibrary.insertAdjacentHTML('beforeend', elementUl);
+  const labraryList = document.querySelector('.film_list');
   const markupLibraryMovies = nameKey.map(movie => {
     const movieTitle = movie.title;
     const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
