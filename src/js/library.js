@@ -16,6 +16,7 @@ const KEY_W = 'watchedKey';
 const watchedBtn = document.querySelector('button[data-action="watched"]');
 const queueBtn = document.querySelector('button[data-action="queue"]');
 const myLibrary = document.querySelector('.library__container');
+const labraryList = document.querySelector('.film_list');
 
 const queueKey = loadLocalStorage(KEY_Q);
 const watchedKey = loadLocalStorage(KEY_W);
@@ -39,6 +40,7 @@ function handleRenderWatchedClick() {
   watchedBtn.classList.add('js-current');
   queueBtn.classList.remove('js-current');
   myLibrary.innerHTML = '';
+  labraryList.innerHTML = '';
   libraryMarkup(watchedKey);
 }
 
@@ -46,6 +48,7 @@ function handleRenderQueueClick() {
   watchedBtn.classList.remove('js-current');
   queueBtn.classList.add('js-current');
   myLibrary.innerHTML = '';
+  labraryList.innerHTML = '';
   libraryMarkup(queueKey);
 }
 
@@ -59,7 +62,6 @@ function libraryMarkup(nameKey) {
 
   // const elementUl = '';
   // myLibrary.insertAdjacentHTML('beforeend', elementUl);
-  const labraryList = document.querySelector('.film_list');
   const markupLibraryMovies = nameKey.map(movie => {
     const movieTitle = movie.title;
     const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -91,7 +93,7 @@ function libraryEmptyMarkup() {
         <div class="library-empty__tumb">
           <a href="./index.html" class="library-empty__btn">CHOOSE MOVIE</a>
         </div>`;
-  myLibrary.insertAdjacentHTML('beforeend', markup);
+  myLibrary.insertAdjacentHTML('afterbegin', markup);
 }
 
 function getGenres(ids) {
