@@ -7,9 +7,7 @@ import './theme';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
 
-import './singUpForm';
-import './singInForm';
-
+import './auth';
 import './footerModal';
 
 

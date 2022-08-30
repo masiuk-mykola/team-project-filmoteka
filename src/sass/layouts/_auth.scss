@@ -1,3 +1,15 @@
+// .team__item-svg {
+//     fill: var(--white-text);
+//     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+//   }
+//   .team__item-svg:hover,
+//   .team__item-svg:focus {
+//     fill: var(--accent-color);
+//     animation: 1s linear 0s normal none running rot;
+//     -webkit-animation: 1s linear 0s normal none running rot;
+//     width: 100px;
+//   }
+.sing-in-form-backdrop, 
 .sing-up-form-backdrop {
     position: fixed;
     left: 0;
@@ -15,6 +27,7 @@
      }
 }
 
+.sing-in-modal,
 .sing-up-modal {
     position: absolute;
     top: 50%;
@@ -58,8 +71,9 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     }
 }
-    
-.sing-up-modal__btn-close {
+
+  .sing-in-modal__btn-close,
+  .sing-up-modal__btn-close {
     position: absolute;
     right: 8px;
     top: 8px;
@@ -72,20 +86,23 @@
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0;
+    fill: var(--main-text);
     cursor: pointer;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     &:hover,
     &:focus {
-    outline: none;
-    fill: var(--accent-color);
+        fill: var(--accent-color);
     }
 }
 
+
+.sing-in-form__label,
 .sing-up-form__label {
     display: block;
 }
 
+.sing-in-form__input,
 .sing-up-form__input {
     padding-left: 40px;
     padding-right: 0;
@@ -95,6 +112,7 @@
     border-radius: 4px;
 }
 
+.sing-in-form__btn,
 .sing-up-form__btn {
     display: block;
     margin: 0 auto;
@@ -105,6 +123,7 @@
     
      // desktop +
 @media screen and (min-width: $desktop) {
+    .sing-in-modal,
     .sing-up-modal  {
     width: 528px;
     height: 581px;
