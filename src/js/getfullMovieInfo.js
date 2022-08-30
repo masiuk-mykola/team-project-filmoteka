@@ -44,7 +44,7 @@ function onMovieCardClick(evt) {
       return;
     } else {
       watchedIdList.forEach(element => {
-        if (element.id === modalMarkup.id) {
+        if (element.id === modalMarkup.filmInfo.id) {
           watchedBtn.textContent = 'Remove from watched';
         }
       });
@@ -58,7 +58,7 @@ function onMovieCardClick(evt) {
       return;
     } else {
       queueIdList.forEach(element => {
-        if (element.id === modalMarkup.id) {
+        if (element.id === modalMarkup.filmInfo.id) {
           queueBtn.textContent = 'Remove from queue';
         }
       });
@@ -75,6 +75,7 @@ const keyW = 'watchedKey';
 const keyQ = 'queueKey';
 
 function addWatchedBtn(event) {
+  event.preventDefault();
   const watchedBtn = event.target;
   const watchedMovie = modalMarkup.filmInfo;
 
@@ -94,7 +95,6 @@ function addWatchedBtn(event) {
 //Добавлення в список для перегляду фільмів
 function addQueueBtn(event) {
   const queueBtn = event.target;
-
   const queueMovie = modalMarkup.filmInfo;
 
   if (queueIdList.find(film => film.id === queueMovie.id)) {
