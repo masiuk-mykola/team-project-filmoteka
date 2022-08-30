@@ -1,5 +1,6 @@
 import { mobMenu } from './mobile-menu';
 import { onPageStart } from './startPageGalleryRender';
+import './theme';
 import './footerModal';
 import './modalMovieMarkup';
 import './getfullMovieInfo';

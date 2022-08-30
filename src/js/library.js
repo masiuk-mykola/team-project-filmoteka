@@ -3,6 +3,7 @@ import {
   loadLocalStorage,
   removeLocalStorage,
 } from './localStorage';
+import './theme';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
 import './footerModal';
