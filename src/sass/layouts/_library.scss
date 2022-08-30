@@ -64,7 +64,7 @@
   text-transform: uppercase;
   color: var(--white-text);
   background-color: #222222;
-  border: none;
+  border: 1px solid white;
 
   @media screen and (min-width: $tablet) {
     width: 152px;
