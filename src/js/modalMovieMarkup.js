@@ -1,14 +1,10 @@
 const modalWindowEl = document.querySelector('.backdrop');
+const btnMovieClose = document.querySelector('.btn-close_modal');
 const bodyEl = document.querySelector('body');
 
 export default class modalMarkupApi {
   constructor() {
-    this.title = '';
-    this.poster_path = '';
-    this.genres = '';
-    this.release_date = '';
-    this.vote_average = '';
-    this.id = '';
+    this.filmInfo = {};
   }
 
   makeFilmModalMarkup({
@@ -27,17 +23,18 @@ export default class modalMarkupApi {
     const modalWindow = `<div class="modal-window">
 
         <div class="modal-film_img">
-         <button type="button" class="btn-close_modal">
+         <button type="button" class="btn-close_modal" id="modal-close" >
         <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="25"
+        width="14"
+        height="14"
         fill="currentColor"
         class="bi bi-x-lg"
+        id="close-icon"
         viewBox="0 0 16 16"
       >
-        <path
-          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+        <path 
+           id = "close-svg" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
         />
       </svg>
         </button>
@@ -86,6 +83,7 @@ export default class modalMarkupApi {
 export function isOpenModal() {
   modalWindowEl.classList.add('modal-open');
   document.getElementById('backToTop').style.display = 'none';
+  document.body.style.overflow = 'hidden';
 }
 
 export function clearModal() {
@@ -94,19 +92,26 @@ export function clearModal() {
 
 // ф-ція закриття модалки
 
-export function setCloseOptionModal() {
-  modalWindowEl.addEventListener('click', e => {
-    if (e.target.nodeName == 'BUTTON') {
-      return;
-    }
-    modalWindowEl.classList.remove('modal-open');
-    document.body.style.overflow = '';
-  });
+export function onEscClose(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
 }
 
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') {
-    modalWindowEl.classList.remove('modal-open');
-    document.body.style.overflow = '';
+export function onClickClose(event) {
+  if (
+    event.target === modalWindowEl ||
+    event.target.id === 'modal-close' ||
+    event.target.id === 'close-icon' ||
+    event.target.id === 'close-svg'
+  ) {
+    closeModal();
   }
-});
+}
+
+function closeModal() {
+  modalWindowEl.classList.remove('modal-open');
+  document.removeEventListener('click', onClickClose);
+  document.removeEventListener('keydown', onEscClose);
+  document.body.style.overflow = '';
+}

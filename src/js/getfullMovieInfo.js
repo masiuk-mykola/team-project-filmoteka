@@ -5,7 +5,8 @@ import { moviesGallery } from './moviesMarkup';
 import {
   isOpenModal,
   clearModal,
-  setCloseOptionModal,
+  onEscClose,
+  onClickClose,
   makeFilmModalMarkup,
 } from './modalMovieMarkup';
 
@@ -19,19 +20,23 @@ function onMovieCardClick(evt) {
   clearModal();
   isOpenModal();
   document.body.style.overflow = 'hidden';
-  setCloseOptionModal();
+  document.addEventListener('keydown', onEscClose);
+  document.addEventListener('click', onClickClose);
+
   if (!evt.target.closest('li')) {
     return;
   }
   getFullInfo.getFullMovieInfo(evt.target.closest('li').id).then(films => {
     modalMarkup.makeFilmModalMarkup(films);
 
-    modalMarkup.title = films.title;
-    modalMarkup.poster_path = films.poster_path;
-    modalMarkup.genres = films.genres;
-    modalMarkup.release_date = films.release_date;
-    modalMarkup.vote_average = films.vote_average;
-    modalMarkup.id = films.id;
+    modalMarkup.filmInfo = {
+      title: films.title,
+      poster_path: films.poster_path,
+      genres: films.genres,
+      release_date: films.release_date,
+      vote_average: films.vote_average,
+      id: films.id,
+    };
 
     const watchedBtn = document.querySelector('.ls-watched');
 
@@ -71,23 +76,15 @@ const keyQ = 'queueKey';
 
 function addWatchedBtn(event) {
   const watchedBtn = event.target;
-  const watchedMovie = {
-    title: modalMarkup.title,
-    poster_path: modalMarkup.poster_path,
-    genres: modalMarkup.genres,
-    release_date: modalMarkup.release_date,
-    vote_average: modalMarkup.vote_average,
-    id: modalMarkup.id,
-  };
-  const watchedId = watchedMovie;
+  const watchedMovie = modalMarkup.filmInfo;
 
-  if (watchedIdList.find(film => film.id === watchedId.id)) {
-    watchedIdList = watchedIdList.filter(film => film.id !== watchedId.id);
+  if (watchedIdList.find(film => film.id === watchedMovie.id)) {
+    watchedIdList = watchedIdList.filter(film => film.id !== watchedMovie.id);
     local.saveLocalStorage(keyW, watchedIdList);
     watchedBtn.textContent = 'Add to watched';
     return;
   } else {
-    watchedIdList.push(watchedId);
+    watchedIdList.push(watchedMovie);
     local.saveLocalStorage(keyW, watchedIdList);
     watchedBtn.textContent = 'Remove from watched';
   }
@@ -97,22 +94,14 @@ function addWatchedBtn(event) {
 function addQueueBtn(event) {
   const queueBtn = event.target;
 
-  const watchedMovie = {
-    title: modalMarkup.title,
-    poster_path: modalMarkup.poster_path,
-    genres: modalMarkup.genres,
-    release_date: modalMarkup.release_date,
-    vote_average: modalMarkup.vote_average,
-    id: modalMarkup.id,
-  };
-  const queueId = watchedMovie;
+  const queueMovie = modalMarkup.filmInfo;
 
-  if (queueIdList.find(film => film.id === queueId.id)) {
-    queueIdList = queueIdList.filter(film => film.id !== queueId.id);
+  if (queueIdList.find(film => film.id === queueMovie.id)) {
+    queueIdList = queueIdList.filter(film => film.id !== queueMovie.id);
     local.saveLocalStorage(keyQ, queueIdList);
     queueBtn.textContent = 'Add to Queue';
   } else {
-    queueIdList.push(queueId);
+    queueIdList.push(queueMovie);
     local.saveLocalStorage(keyQ, queueIdList);
     queueBtn.textContent = 'Remove from queue';
   }
