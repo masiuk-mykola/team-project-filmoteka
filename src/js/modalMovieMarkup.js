@@ -88,6 +88,7 @@ export function isOpenModal() {
 
 export function clearModal() {
   modalWindowEl.innerHTML = '';
+  modalWindowEl.classList.remove('modal-open');
 }
 
 // ф-ція закриття модалки

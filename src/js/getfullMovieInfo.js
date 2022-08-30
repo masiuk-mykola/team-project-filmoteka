@@ -82,12 +82,13 @@ function addWatchedBtn(event) {
     watchedIdList = watchedIdList.filter(film => film.id !== watchedMovie.id);
     local.saveLocalStorage(keyW, watchedIdList);
     watchedBtn.textContent = 'Add to watched';
-    return;
   } else {
     watchedIdList.push(watchedMovie);
     local.saveLocalStorage(keyW, watchedIdList);
     watchedBtn.textContent = 'Remove from watched';
   }
+  clearModal();
+  document.body.style.overflow = '';
 }
 
 //Добавлення в список для перегляду фільмів
@@ -105,6 +106,8 @@ function addQueueBtn(event) {
     local.saveLocalStorage(keyQ, queueIdList);
     queueBtn.textContent = 'Remove from queue';
   }
+  clearModal();
+  document.body.style.overflow = '';
 }
 
 export { addWatchedBtn, addQueueBtn };
