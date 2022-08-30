@@ -20,6 +20,7 @@ const auth = getAuth(app);
 const inputEmail = document.querySelector('input[name="email"]');
 const inputPassword = document.querySelector('input[name="password"]');
 const btnSignUpEl = document.querySelector('.js-up');
+const closeSingUpModalBtn = document.querySelector(".sing-up-modal__btn-close");
 const backdropSingUpEl = document.querySelector('.sing-up-form-backdrop');
 const closeModalBtn = document.querySelector(".sing-up-modal__btn-close");
 
@@ -46,13 +47,15 @@ createUserWithEmailAndPassword(auth, email, password)
     console.log (user);
     Notiflix.Notify.success('Registration completed successfully! Please, sing in!');
     backdropSingUpEl.classList.add('is-hidden');
+    btnSignUpEl.classList.add('is-hidden');
+    closeSingUpModalBtn.classList.remove('is-hidden');
     if (user) {
         inputEmail.value = '';
         inputPassword.value = '';
-        btnSignUpEl.classList.add('is-hidden');
+   
     }
-        
-     // ...
+      return user;
+   
 })
 .catch((error) => {
     console.log('error', error);

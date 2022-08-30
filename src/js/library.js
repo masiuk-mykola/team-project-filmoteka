@@ -7,7 +7,7 @@ import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
 import './singUpForm';
 import './singInForm';
-
+// import './auth';
 
 const KEY_Q = 'queueKey';
 const KEY_W = 'watchedKey';
