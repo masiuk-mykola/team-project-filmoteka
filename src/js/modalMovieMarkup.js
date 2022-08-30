@@ -4,12 +4,7 @@ const bodyEl = document.querySelector('body');
 
 export default class modalMarkupApi {
   constructor() {
-    this.title = '';
-    this.poster_path = '';
-    this.genres = '';
-    this.release_date = '';
-    this.vote_average = '';
-    this.id = '';
+    this.filmInfo = {};
   }
 
   makeFilmModalMarkup({
