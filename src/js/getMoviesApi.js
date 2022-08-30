@@ -18,8 +18,7 @@ export default class getMoviesApi {
     try {
       const movies = await axios.get(url);
 
-      this.nextPage();
-      return movies.data.results;
+      return movies.data;
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +30,6 @@ export default class getMoviesApi {
     try {
       const searchedMovies = await axios.get(url);
 
-      this.nextPage();
       return searchedMovies.data;
     } catch (error) {
       console.log(error);
@@ -50,19 +48,11 @@ export default class getMoviesApi {
     }
   }
 
-  nextPage() {
-    this.page += 1;
-  }
-
   resetPage() {
     this.page = 1;
   }
 
-  get query() {
-    return this.searchQuery;
-  }
-
   set query(newQuery) {
-    return (this.searchQuery = newQuery);
+    this.searchQuery = newQuery;
   }
 }
