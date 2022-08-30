@@ -5,7 +5,7 @@ import {
 } from './localStorage';
 import './theme';
 import getMoviesApi from './getMoviesApi';
-import { appendMoviesMarkup } from './moviesMarkup';
+// import { appendMoviesMarkup } from './moviesMarkup';
 
 import './auth';
 import './footerModal';
@@ -56,7 +56,7 @@ function handleRenderQueueClick() {
 }
 
 function libraryMarkup(nameKey) {
-  if (nameKey === null || nameKey === undefined || nameKey === []) {
+  if (nameKey === null || nameKey === undefined || nameKey.length === 0) {
     // Тут должна быть заглушка для MyLibrary - картинка или текст, что фильмов в библиотеке нет
     libraryEmptyMarkup();
     console.log('Поставлена инфо что библиотека пустая');
