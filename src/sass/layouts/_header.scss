@@ -364,44 +364,59 @@ a {
   padding-left: 20px;
   padding-right: 20px;
 
-  background-image: url('../images/library/mobile/background-1.jpg');
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/src/images/library/mobile/background-1.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
 
   @media (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('../images/library/mobile/background-@2x.jpg');
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/src/images/library/mobile/background-@2x.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
   }
 
   @media screen and (min-width: $tablet) {
-    background-image: url('../images/library/tablet/background-1.jpg');
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.56) 10%, rgba(0, 0, 0, 0.56) 30%), url('../images/library/tablet/background-1.jpg');
     height: 219px;
     padding-left: 31px;
     padding-right: 31px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../images/library/tablet/background-@2x.jpg');
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/tablet/background-@2x.jpg');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
     }
   }
 
   @media screen and (min-width: $desktop) {
-    background-image: url('../images/library/desktop/background-1.jpg');
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/desktop/background-1.jpg');
     padding-left: 32px;
     padding-right: 32px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
     height: 216px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('../images/library/desktop/background-@2x.jpg');
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/desktop/background-@2x.jpg');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
     }
   }
-}
+} 
 
 .header-btn__list {
   position: absolute;
