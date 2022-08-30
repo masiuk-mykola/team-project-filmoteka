@@ -1,0 +1,75 @@
+//MOBILE
+
+@media screen and (max-width: 767px) {
+
+    .to-end,
+    .to-start {
+        display: none;
+    }
+
+}
+
+
+.pag-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.pag-btns-container {
+    display: flex;
+    margin-right: 10px;
+}
+
+.left-controls-container {
+    margin-right: 10px;
+}
+
+.move-left {
+    margin-left: 5px;
+}
+
+.move-right {
+    margin-right: 5px;
+}
+
+.right-controls-container,
+.left-controls-container {
+    display: flex;
+}
+
+.to-end,
+.to-start,
+.move-left,
+.move-right,
+.pag-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    height: 40px;
+    // padding: 12px 12px;
+    font-size: 12px;
+    line-height: 1.33;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.move-left,
+.move-right {
+    background-color: #f7f7f7;
+}
+
+.pag-btn:not(:last-child) {
+    margin-right: 5px;
+}
+
+.pag-btn-active {
+    color: white;
+    border-color: transparent;
+    background-color: #FF6B02;
+}
+
+.unvisible {
+    display: none;
+}
