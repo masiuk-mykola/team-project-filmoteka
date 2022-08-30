@@ -184,15 +184,24 @@
 .btn__list {
   @media screen and (min-width: $tablet) {
     display: flex;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     gap: 40px;
   }
 
   @media screen and (min-width: $desktop) {
     display: flex;
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
     gap: 40px;
   }
+}
+
+.sing-list-btn {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.js-out {
+  padding-left: 85px;
 }
 
 .btn__item {
@@ -229,11 +238,13 @@
 .link__list {
   @media screen and (min-width: $tablet) {
     display: flex;
+    justify-content: flex-end;
     gap: 40px;
   }
 
   @media screen and (min-width: $desktop) {
     display: flex;
+    justify-content: flex-end;
     gap: 40px;
   }
 }
