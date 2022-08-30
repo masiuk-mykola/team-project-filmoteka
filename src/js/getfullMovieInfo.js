@@ -11,7 +11,7 @@ import {
 } from './modalMovieMarkup';
 
 moviesGallery.addEventListener('click', onMovieCardClick);
-
+const header = document.querySelector('header');
 const getFullInfo = new getMoviesApi();
 const modalMarkup = new modalMarkupApi();
 
@@ -39,7 +39,12 @@ function onMovieCardClick(evt) {
     };
 
     const watchedBtn = document.querySelector('.ls-watched');
+    const queueBtn = document.querySelector('.ls-queue');
 
+    if (header.classList.contains('header-library')) {
+      queueBtn.textContent = 'Remove from queue';
+      watchedBtn.textContent = 'Remove from watched';
+    }
     if (watchedIdList.length === -1) {
       return;
     } else {
@@ -51,8 +56,6 @@ function onMovieCardClick(evt) {
     }
 
     watchedBtn.addEventListener('click', addWatchedBtn);
-
-    const queueBtn = document.querySelector('.ls-queue');
 
     if (queueIdList.length === -1) {
       return;
