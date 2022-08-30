@@ -44,7 +44,7 @@ function onMovieCardClick(evt) {
       return;
     } else {
       watchedIdList.forEach(element => {
-        if (element.id === modalMarkup.id) {
+        if (element.id === modalMarkup.filmInfo.id) {
           watchedBtn.textContent = 'Remove from watched';
         }
       });
@@ -58,7 +58,7 @@ function onMovieCardClick(evt) {
       return;
     } else {
       queueIdList.forEach(element => {
-        if (element.id === modalMarkup.id) {
+        if (element.id === modalMarkup.filmInfo.id) {
           queueBtn.textContent = 'Remove from queue';
         }
       });
@@ -78,6 +78,10 @@ function addWatchedBtn(event) {
   const watchedBtn = event.target;
   const watchedMovie = modalMarkup.filmInfo;
 
+  if (localStorage.getItem(keyW) !== null) {
+    watchedIdList = local.loadLocalStorage(keyW);
+  }
+
   if (watchedIdList.find(film => film.id === watchedMovie.id)) {
     watchedIdList = watchedIdList.filter(film => film.id !== watchedMovie.id);
     local.saveLocalStorage(keyW, watchedIdList);
@@ -94,8 +98,11 @@ function addWatchedBtn(event) {
 //Добавлення в список для перегляду фільмів
 function addQueueBtn(event) {
   const queueBtn = event.target;
-
   const queueMovie = modalMarkup.filmInfo;
+
+  if (localStorage.getItem(keyQ) !== null) {
+    queueIdList = local.loadLocalStorage(keyQ);
+  }
 
   if (queueIdList.find(film => film.id === queueMovie.id)) {
     queueIdList = queueIdList.filter(film => film.id !== queueMovie.id);
