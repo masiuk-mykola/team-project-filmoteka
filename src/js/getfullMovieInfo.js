@@ -75,9 +75,12 @@ const keyW = 'watchedKey';
 const keyQ = 'queueKey';
 
 function addWatchedBtn(event) {
-  event.preventDefault();
   const watchedBtn = event.target;
   const watchedMovie = modalMarkup.filmInfo;
+
+  if (localStorage.getItem(keyW) !== null) {
+    watchedIdList = local.loadLocalStorage(keyW);
+  }
 
   if (watchedIdList.find(film => film.id === watchedMovie.id)) {
     watchedIdList = watchedIdList.filter(film => film.id !== watchedMovie.id);
@@ -96,6 +99,10 @@ function addWatchedBtn(event) {
 function addQueueBtn(event) {
   const queueBtn = event.target;
   const queueMovie = modalMarkup.filmInfo;
+
+  if (localStorage.getItem(keyQ) !== null) {
+    queueIdList = local.loadLocalStorage(keyQ);
+  }
 
   if (queueIdList.find(film => film.id === queueMovie.id)) {
     queueIdList = queueIdList.filter(film => film.id !== queueMovie.id);
