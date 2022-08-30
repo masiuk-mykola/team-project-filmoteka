@@ -5,7 +5,8 @@ import { moviesGallery } from './moviesMarkup';
 import {
   isOpenModal,
   clearModal,
-  setCloseOptionModal,
+  onEscClose,
+  onClickClose,
   makeFilmModalMarkup,
 } from './modalMovieMarkup';
 
@@ -19,7 +20,9 @@ function onMovieCardClick(evt) {
   clearModal();
   isOpenModal();
   document.body.style.overflow = 'hidden';
-  setCloseOptionModal();
+  document.addEventListener('keydown', onEscClose);
+  document.addEventListener('click', onClickClose);
+
   if (!evt.target.closest('li')) {
     return;
   }

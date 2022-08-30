@@ -3,9 +3,10 @@ import {
   loadLocalStorage,
   removeLocalStorage,
 } from './localStorage';
+import './theme';
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
-
+import './footerModal';
 
 const KEY_Q = 'queueKey';
 const KEY_W = 'watchedKey';
