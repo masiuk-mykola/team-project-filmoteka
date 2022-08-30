@@ -3,7 +3,8 @@ import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app'
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword,
     onAuthStateChanged, } from "firebase/auth";
-
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import {addLoader, removeLoader} from './loader';
 
 const app = initializeApp(firebaseConfig);   // Initialize Firebase
 
@@ -39,6 +40,7 @@ function onSubmitSingUpButtonClick (e) {
     e.preventDefault();
     let email = singUpEmailInput.value;
     let password = singUpPasswordInput.value;
+    addLoader();
 
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -47,7 +49,7 @@ function onSubmitSingUpButtonClick (e) {
     e.target.reset();
     backdropSingUpEl.classList.add('is-hidden');
     Notiflix.Notify.info("Registration completed successfully");
-    // ...
+    removeLoader();
   })
   .catch((error) => {
     if (error.message === 'Firebase: Error (auth/invalid-email).') {
@@ -72,6 +74,7 @@ function onSingOutBtnClick() {
     signOut(auth)
     .then(() => {
         Notiflix.Notify.info("You're sing out.");
+        document.querySelector('#my-library').classList.add('lib');
     })
     .catch(() => {
         Notiflix.Notify.error("Error.");
@@ -95,12 +98,12 @@ function onSubmitSingInButtonClick(e) {
     .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
     e.target.reset();
     backdropSingInEl.classList.add('is-hidden');
     Notiflix.Notify.success('You are logged into your account');
     })
     .catch((error) => {
+        e.target.reset();
         if (error.message === 'Firebase: Error (auth/invalid-email).') {
             Notiflix.Notify.warning('Ivalid email. Please, try again!');}
             else if (
@@ -116,15 +119,12 @@ function onSubmitSingInButtonClick(e) {
                 }
   });
 }
-// let uid = null;
-// let userInterface = null;
+
 onAuthStateChanged(auth, (user) => {
-    // userInterface = user;
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      console.log(uid);
       singUpEL.classList.add('is-hidden');
       singUpEL.classList.remove('btn__item');
       singInEL.classList.add('is-hidden');
