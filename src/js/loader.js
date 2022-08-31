@@ -1,10 +1,13 @@
-    function addLoader(){
-        document.querySelector('.loader').classList.add('hidden'); 
+    import { Loading } from 'notiflix/build/notiflix-loading-aio';
+
+    export function addLoader(){
+        Loading.standard({
+            svgColor: 'var(--accent-color)',
+    });
     }
 
-    function removeLoader(){
-        document.querySelector('.loader').classList.remove('hidden');
+    export function removeLoader(){
+        Loading.remove(250);
     }
 
-    export {addLoader, removeLoader};
   
