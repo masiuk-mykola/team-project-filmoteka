@@ -5,10 +5,7 @@
 
 .dark-theme {
   color: var(--white-text);
-  background: linear-gradient(45deg, #330b22, #362e29, #040327);
-  background-size: 200% 200%;
-  animation: gradient 5s ease infinite;
-  box-shadow: inset 2px 2px 10px var(--accent-color);
+  background: #172127;
 
 
   select {
