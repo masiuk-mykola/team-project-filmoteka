@@ -5,7 +5,7 @@ import './footerModal';
 import './modalMovieMarkup';
 import './getfullMovieInfo';
 import { onSearchFormSubmit } from './search';
-import './auth';
+import './Utils/auth';
 import './header';
 import './loader';
 

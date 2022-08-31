@@ -91,6 +91,22 @@
   display: block;
 }
 
+.sing-up-form__data,
+.sing-in-form__data {
+  margin-bottom: 4px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  color: var(--main-text);
+}
+
+.sing-up-form__wrapper,
+.sing-in-form__wrapper {
+  position: relative;
+  display: block;
+}
+
 .sing-in-form__input,
 .sing-up-form__input {
   padding-left: 40px;
@@ -99,7 +115,37 @@
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-}
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      background-color: var(--footer-tex);
+      cursor: pointer;
+    }
+
+    &:not(:placeholder-shown):required {
+      border-color: var(--accent-color);
+      background-color: var(--footer-tex);
+    }
+  }
+
+  .sing-up-form__icon,
+  .sing-in-form__icon {
+    position: absolute;
+    left: 12px;
+    top: 11px;
+   
+    .sing-up-form__input:focus + & {
+      fill: var(--accent-color);
+    }
+
+    .sing-up-form__input:not(:placeholder-shown):required + & {
+      fill: var(--accent-color);
+    }
+  }
+
 
 .sing-in-form__btn,
 .sing-up-form__btn {

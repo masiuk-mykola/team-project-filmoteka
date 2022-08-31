@@ -3,8 +3,7 @@ import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app'
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword,
     onAuthStateChanged, } from "firebase/auth";
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import {addLoader, removeLoader} from './loader';
+import {addLoader, removeLoader} from '../loader';
 
 const app = initializeApp(firebaseConfig);   // Initialize Firebase
 
@@ -40,11 +39,11 @@ function onSubmitSingUpButtonClick (e) {
     e.preventDefault();
     let email = singUpEmailInput.value;
     let password = singUpPasswordInput.value;
-    addLoader();
-
+    
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
+    addLoader();
     const user = userCredential.user;
     e.target.reset();
     backdropSingUpEl.classList.add('is-hidden');
@@ -52,6 +51,7 @@ function onSubmitSingUpButtonClick (e) {
     removeLoader();
   })
   .catch((error) => {
+    addLoader();
     if (error.message === 'Firebase: Error (auth/invalid-email).') {
         Notiflix.Notify.warning('Ivalid email. Please, try again!');}
         else if (
@@ -65,20 +65,8 @@ function onSubmitSingUpButtonClick (e) {
         else {
             Notiflix.Notify.warning('Registration error. Try again');
             }
+            removeLoader();
   });
-}
-
-singOutEL.addEventListener('click', onSingOutBtnClick);
-
-function onSingOutBtnClick() {
-    signOut(auth)
-    .then(() => {
-        Notiflix.Notify.info("You're sing out.");
-        document.querySelector('#my-library').classList.add('lib');
-    })
-    .catch(() => {
-        Notiflix.Notify.error("Error.");
-    })
 }
 
 singInEL.addEventListener('click', onSingInBtnClick);
@@ -97,13 +85,16 @@ function onSubmitSingInButtonClick(e) {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in 
+    addLoader();
     const user = userCredential.user;
     e.target.reset();
     backdropSingInEl.classList.add('is-hidden');
     Notiflix.Notify.success('You are logged into your account');
+    removeLoader();
     })
     .catch((error) => {
         e.target.reset();
+        addLoader();
         if (error.message === 'Firebase: Error (auth/invalid-email).') {
             Notiflix.Notify.warning('Ivalid email. Please, try again!');}
             else if (
@@ -117,6 +108,7 @@ function onSubmitSingInButtonClick(e) {
             else {
                 Notiflix.Notify.warning('Registration error. Try again');
                 }
+                removeLoader();
   });
 }
 
@@ -137,6 +129,23 @@ onAuthStateChanged(auth, (user) => {
         singOutEL.classList.add('is-hidden');
     }
   });
+
+  singOutEL.addEventListener('click', onSingOutBtnClick);
+
+function onSingOutBtnClick() {
+    signOut(auth)
+    .then(() => {
+        addLoader();
+        Notiflix.Notify.info("You're sing out.");
+        document.querySelector('#my-library').classList.add('lib');
+        removeLoader();
+    })
+    .catch(() => {
+        addLoader();
+        Notiflix.Notify.error("Error.");
+        removeLoader();
+    })
+}
 
 
 

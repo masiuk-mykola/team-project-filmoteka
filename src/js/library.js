@@ -7,7 +7,7 @@ import './theme';
 import getMoviesApi from './getMoviesApi';
 // import { appendMoviesMarkup } from './moviesMarkup';
 
-import './auth';
+import './Utils/auth';
 import './footerModal';
 import './modalMovieMarkup';
 import './getfullMovieInfo';
