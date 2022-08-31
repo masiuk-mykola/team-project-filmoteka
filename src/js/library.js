@@ -8,7 +8,7 @@ import getMoviesApi from './getMoviesApi';
 import { mobMenu } from './mobile-menu';
 mobMenu();
 
-import './auth';
+import './Utils/auth';
 import './footerModal';
 import './modalMovieMarkup';
 import './getfullMovieInfo';
