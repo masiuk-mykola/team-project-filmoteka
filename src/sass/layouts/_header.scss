@@ -163,6 +163,7 @@
     padding: 40px;
     text-align: center;
     z-index: 1;
+    overflow: scroll;
 
     background: linear-gradient(
       90deg,
@@ -195,7 +196,7 @@
   }
 }
 .lib {
-  color: #888;/* цвет текста серый */
+  color: #888; /* цвет текста серый */
 }
 
 .sing-list-btn {
@@ -367,7 +368,8 @@ a {
   padding-left: 20px;
   padding-right: 20px;
 
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/src/images/library/mobile/background-1.jpg');
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('/src/images/library/mobile/background-1.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -376,14 +378,24 @@ a {
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/src/images/library/mobile/background-@2x.jpg');
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('/src/images/library/mobile/background-@2x.jpg');
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
   }
 
   @media screen and (min-width: $tablet) {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.56) 10%, rgba(0, 0, 0, 0.56) 30%), url('../images/library/tablet/background-1.jpg');
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56) 10%,
+        rgba(0, 0, 0, 0.56) 30%
+      ),
+      url('../images/library/tablet/background-1.jpg');
     height: 219px;
     padding-left: 31px;
     padding-right: 31px;
@@ -394,7 +406,12 @@ a {
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/tablet/background-@2x.jpg');
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url('../images/library/tablet/background-@2x.jpg');
       background-repeat: no-repeat;
       background-position: bottom;
       background-size: cover;
@@ -402,7 +419,12 @@ a {
   }
 
   @media screen and (min-width: $desktop) {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/desktop/background-1.jpg');
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('../images/library/desktop/background-1.jpg');
     padding-left: 32px;
     padding-right: 32px;
     background-repeat: no-repeat;
@@ -413,13 +435,18 @@ a {
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('../images/library/desktop/background-@2x.jpg');
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url('../images/library/desktop/background-@2x.jpg');
       background-repeat: no-repeat;
       background-position: bottom;
       background-size: cover;
     }
   }
-} 
+}
 
 .header-btn__list {
   position: absolute;

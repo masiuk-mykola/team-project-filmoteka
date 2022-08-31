@@ -5,13 +5,13 @@ import {
 } from './localStorage';
 import './theme';
 import getMoviesApi from './getMoviesApi';
-// import { appendMoviesMarkup } from './moviesMarkup';
+import { mobMenu } from './mobile-menu';
+mobMenu();
 
-import './auth';
+import './Utils/auth';
 import './footerModal';
 import './modalMovieMarkup';
 import './getfullMovieInfo';
-
 
 const KEY_Q = 'queueKey';
 const KEY_W = 'watchedKey';
@@ -65,28 +65,32 @@ function libraryMarkup(nameKey) {
 
   // const elementUl = '';
   // myLibrary.insertAdjacentHTML('beforeend', elementUl);
-  const markupLibraryMovies = nameKey.map(movie => {
-    const movieTitle = movie.title;
-    const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    const movieReleaseDate = movie.release_date.split('').slice(0, 4).join('');
-    const movieGenres = getGenres(movie.genres);
-    const movieId = movie.id;
-    const voteAverage = movie.vote_average;
-    
-    const movieMarkup = `<li id="${movieId}" class="film-list__item"><img src="${moviePoster}" alt="${movieTitle}" class="film-list__item-poster" loading="lazy">
+  const markupLibraryMovies = nameKey
+    .map(movie => {
+      const movieTitle = movie.title;
+      const moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      const movieReleaseDate = movie.release_date
+        .split('')
+        .slice(0, 4)
+        .join('');
+      const movieGenres = getGenres(movie.genres);
+      const movieId = movie.id;
+      const voteAverage = movie.vote_average;
+
+      const movieMarkup = `<li id="${movieId}" class="film-list__item"><img src="${moviePoster}" alt="${movieTitle}" class="film-list__item-poster" loading="lazy">
      <h3 class="film-list__item-title">${movieTitle}</h3>
      <div class="film-list__item-details"><span class="film-list__item-genres">${movieGenres}</span>|<span class="film-list__item-year">${movieReleaseDate}</span><span class="film-list__item-vote">${voteAverage.toFixed(
-                  1
-                )}</span></div>
+        1
+      )}</span></div>
    </li>`;
-    
-    return movieMarkup;
-  }).join('');
+
+      return movieMarkup;
+    })
+    .join('');
 
   // console.log(markupLibraryMovies);
 
   labraryList.insertAdjacentHTML('beforeend', markupLibraryMovies);
-
 }
 
 function libraryEmptyMarkup() {

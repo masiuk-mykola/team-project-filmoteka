@@ -1,4 +1,37 @@
 <main>
+  <div class="sort-box">
+    <label for="sort">Sort by:</label>
+    <select id="sort">
+      <option label="Trending"></option>
+      <option value="popularity.desc">Popularity desc</option>
+      <option value="revenue.desc">Revenue desc</option>
+      <option value="vote_count.desc">Vote count desc</option>
+    </select>
+
+    <label for="genre">Choose genre:</label>
+    <select id="genre">
+      <option label="Trending movies"></option>
+      <option value="28">Action</option>
+      <option value="12">Adventure</option>
+      <option value="16">Animation</option>
+      <option value="35">Comedy</option>
+      <option value="80">Crime</option>
+      <option value="99">Documentary</option>
+      <option value="18">Drama</option>
+      <option value="10751">Family</option>
+      <option value="14">Fantasy</option>
+      <option value="36">History</option>
+      <option value="27">Horror</option>
+      <option value="10402">Music</option>
+      <option value="9648">Mystery</option>
+      <option value="10749">Romance</option>
+      <option value="878">Science Fiction</option>
+      <option value="10770">TV Movie</option>
+      <option value="53">Thriller</option>
+      <option value="10752">War</option>
+      <option value="37">Western</option>
+    </select>
+  </div>
   <section class="container">
     <h2 class="visually-hidden">Movies list</h2>
     <div class="sing-up-form-backdrop is-hidden">
@@ -10,22 +43,34 @@
         </button>
         <form class="sing-up-form">
           <label class="sing-up-form__label">
-            Email
-            <input
-              class="sing-up-form__input"
-              type="text"
-              name="sing-up-email"
-              required
-            />
+            <span class="sing-up-form__data">Email</span>
+            <span class="sing-up-form__wrapper">
+              <input
+                class="sing-up-form__input"
+                type="text"
+                name="sing-up-email"
+                required
+                placeholder="Email"
+              />
+              <svg class="sing-up-form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#icon-email-black"></use>
+              </svg>
+            </span>
           </label>
           <label class="sing-up-form__label">
-            Password
-            <input
-              class="sing-up-form__input"
-              type="text"
-              name="sing-up-password"
-              required
-            />
+            <span class="sing-up-form__data">Password</span>
+            <span class="sing-up-form__wrapper">
+              <input
+                class="sing-up-form__input"
+                type="password"
+                name="sing-up-password"
+                required
+                placeholder="Password"
+              />
+              <svg class="sing-up-form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#icon-key"></use>
+              </svg>
+            </span>
           </label>
           <button class="btn sing-up-form__btn" type="submit">Sing up</button>
         </form>
@@ -40,27 +85,40 @@
         </button>
         <form class="sing-in-form">
           <label class="sing-in-form__label">
-            Email
-            <input
-              class="sing-in-form__input"
-              type="text"
-              name="sing-in-email"
-              required
-            />
+            <span class="sing-in-form__data">Email</span>
+            <span class="sing-in-form__wrapper">
+              <input
+                class="sing-in-form__input"
+                type="text"
+                name="sing-in-email"
+                required
+                placeholder="Email"
+              />
+              <svg class="sing-in-form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#icon-email-black"></use>
+              </svg>
+            </span>
           </label>
           <label class="sing-in-form__label">
-            Password
-            <input
-              class="sing-in-form__input"
-              type="text"
-              name="sing-in-password"
-              required
-            />
+            <span class="sing-in-form__data">Password</span>
+            <span class="sing-up-form__wrapper">
+              <input
+                class="sing-in-form__input"
+                type="password"
+                name="sing-in-password"
+                required
+                placeholder="Password"
+              />
+              <svg class="sing-up-form__icon" width="18" height="18">
+                <use href="./images/sprite.svg#icon-key"></use>
+              </svg>
+            </span>
           </label>
           <button class="btn sing-in-form__btn" type="submit">Sign in</button>
         </form>
       </div>
     </div>
     <ul class="film_list"></ul>
+    <div class="pag-container"></div>
   </section>
 </main>

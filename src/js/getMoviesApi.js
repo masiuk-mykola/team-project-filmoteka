@@ -10,6 +10,10 @@ export default class getMoviesApi {
     this.genresPath = `/genre/movie/list`;
     this.fullInfoPath = `/movie/`;
     this.moviesSearchPath = `/search/movie`;
+
+    this.discover = '/discover/movie';
+    this.sortBy = '';
+    this.sortGenre = '';
   }
 
   async getStartMovies() {
@@ -18,8 +22,7 @@ export default class getMoviesApi {
     try {
       const movies = await axios.get(url);
 
-      this.nextPage();
-      return movies.data.results;
+      return movies.data;
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +34,6 @@ export default class getMoviesApi {
     try {
       const searchedMovies = await axios.get(url);
 
-      this.nextPage();
       return searchedMovies.data;
     } catch (error) {
       console.log(error);
@@ -50,19 +52,34 @@ export default class getMoviesApi {
     }
   }
 
-  nextPage() {
-    this.page += 1;
+  async getMovieByPop() {
+    const url = `${this.base_url}${this.discover}${this.key}&sort_by=${this.sortBy}&page=${this.page}`;
+
+    try {
+      const movieByPop = await axios.get(url);
+      return movieByPop.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getMovieByGenre() {
+    const url = `${this.base_url}${this.discover}${this.key}&with_genres=${this.sortGenre}&page=${this.page}`;
+
+    try {
+      const movieByGenre = await axios.get(url);
+
+      return movieByGenre.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   resetPage() {
     this.page = 1;
   }
 
-  get query() {
-    return this.searchQuery;
-  }
-
   set query(newQuery) {
-    return (this.searchQuery = newQuery);
+    this.searchQuery = newQuery;
   }
 }
