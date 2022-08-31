@@ -22,10 +22,6 @@ export function onSearchFormSubmit(evt) {
     return Notify.failure(
       '😭 Sorry, there are no films matching your search query. Please try again.🙏'
     );
-  } else if (query.length <= 2) {
-    return Notify.failure(
-      '🙅‍♂️ Sorry, there are too many films for your request, please enter more than 2 letters.🙏'
-    );
   }
 
   searchMoviesApi.resetPage();
