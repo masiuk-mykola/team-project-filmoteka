@@ -10,6 +10,11 @@
   animation: gradient 5s ease infinite;
   box-shadow: inset 2px 2px 10px var(--accent-color);
 
+  select {
+    background: transparent;
+    color: #fff;
+  }
+  
   .library-empty__tumb {
     background-image: url('../images/library/tablet/library-empty-invert-704.jpg');
 
