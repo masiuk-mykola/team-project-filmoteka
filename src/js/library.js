@@ -9,7 +9,7 @@ import {
   removeLocalStorage,
 } from './localStorage';
 import './theme';
-import getMoviesApi from './getMoviesApi';
+// import getMoviesApi from './getMoviesApi';
 import { mobMenu } from './mobile-menu';
 mobMenu();
 
@@ -102,9 +102,8 @@ function libraryEmptyMarkup() {
   const markup = `<h2 class="library-empty__title">
           Your movie library to watch is empty
         </h2>
-        <div class="library-empty__tumb">
-          <a href="./index.html" class="library-empty__btn">CHOOSE MOVIE</a>
-        </div>`;
+        <a href="./index.html" class="library-empty__btn">CHOOSE MOVIE</a>
+        `;
   myLibrary.insertAdjacentHTML('afterbegin', markup);
 }
 
