@@ -10,15 +10,13 @@
   animation: gradient 5s ease infinite;
   box-shadow: inset 2px 2px 10px var(--accent-color);
 
-  .library-empty__tumb {
-    background-image: url('../images/library/tablet/library-empty-invert-704.jpg');
-
-    @media (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url('../images/library/tablet/library-empty-704@2x.jpg');
+  .library-empty__btn:hover {
+      color: var(--white-text);
+      background-color: transparent;
+      border: 1px solid var(--white-text);
+  
+      font-weight: 500;
     }
-  }
 }
 
 .grey-background-theme {
