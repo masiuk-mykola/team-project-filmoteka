@@ -1,50 +1,51 @@
 .back-to-top {
-    display: none;
-    position: fixed;
-    right: 5px;
-    bottom: 28px;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  display: none;
+  position: fixed;
+  right: 5px;
+  bottom: 28px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  z-index: 100;
+  transition: scale 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
 .icon-rocket {
-    fill: var(--accent-color); 
-    width: 18px;
-    height: 34px;
+  fill: var(--accent-color);
+  width: 18px;
+  height: 34px;
 }
 
 .icon-rocket:hover,
 .icon-rocket:focus {
-scale: 1.1;
+  scale: 1.1;
 }
 
-@media screen and (min-width: 480px) { 
-    .icon-rocket {
-        width: 24px;
-        height: 45px;
-    }
-    .back-to-top {
-        right: 15px;
-    }
+@media screen and (min-width: 480px) {
+  .icon-rocket {
+    width: 24px;
+    height: 45px;
+  }
+  .back-to-top {
+    right: 15px;
+  }
 }
 
-@media screen and (min-width: 768px) { 
-    .back-to-top {
-        right: 15px;
-        bottom: 15px;
-    }
+@media screen and (min-width: 768px) {
+  .back-to-top {
+    right: 15px;
+    bottom: 15px;
+  }
 }
 
-@media screen and (min-width: 1280px) { 
-    .icon-rocket {
-        width: 37px;
-        height: 64px;
-    }
-    
-    .back-to-top {
-        bottom: 6px;
-        right: 30px;
-    }
+@media screen and (min-width: 1280px) {
+  .icon-rocket {
+    width: 37px;
+    height: 64px;
+  }
+
+  .back-to-top {
+    bottom: 6px;
+    right: 30px;
+  }
 }
