@@ -1,67 +1,66 @@
 .footer {
-    position: relative;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background-color: var(--pagination-btn-color);
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: var(--pagination-btn-color);
 }
 .footer__section-down {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .footer__section {
-    text-align: center;
+  text-align: center;
 }
 .footer__desc {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--footer-text);
-    }
-.footer__team-btn {
-    padding: 0;
-    border-color: transparent;
-    background-color: transparent;
-    text-decoration: underline;
-    cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--footer-text);
 }
-.footer__svg {
-    animation: animate150 1000ms infinite 1500ms;
+.footer__team-btn {
+  padding: 0;
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .footer__svg.left {
-    margin-left: 10px;
-    fill: #3e29ff;
+  margin-left: 10px;
+  fill: #3e29ff;
+  animation: animate150 1500ms infinite 1500ms;
 }
 .footer__svg.right {
-    margin-right: 10px;
-    fill: #ffd706;
+  margin-right: 10px;
+  fill: #ffd706;
+  animation: animate150 1500ms infinite 750ms;
 }
 
 @keyframes animate150 {
-        0% {
-        transform: scale(1);
-        }
-        50% {
-        transform: scale(1.5);
-        }
-        100% {
-        transform: scale(1);
-        }
-    }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 @media screen and (min-width: 768px) {
-    .footer__section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .footer__section-down {
-        margin-top: 0;
-    }
-    .footer__desc {
-        font-size: 16px;
-        line-height: 19px;
-    } 
+  .footer__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer__section-down {
+    margin-top: 0;
+  }
+  .footer__desc {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
