@@ -1,13 +1,16 @@
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
+import { paginationPage } from './pagination';
 
 const getMovies = new getMoviesApi();
 
-function onPageStart() {
+export function onPageStart() {
   getMovies.resetPage();
+
   getMovies.getStartMovies().then(movies => {
-    appendMoviesMarkup(movies);
+     appendMoviesMarkup(movies);
   });
+  paginationPage(getMovies);
 }
 
-export { onPageStart };
+
