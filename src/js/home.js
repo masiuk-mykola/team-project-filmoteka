@@ -7,6 +7,7 @@ import './getfullMovieInfo';
 import { onSearchFormSubmit } from './search';
 import './auth';
 import './header';
+import './sortMoviesBy';
 
 const KEY = 'b580e55a4551b421271bf131dd03ab39';
 
