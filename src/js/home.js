@@ -1,3 +1,8 @@
+import easterBreaker from 'easter-break';
+document
+  .getElementById('dangerous-button')
+  .addEventListener('click', () => easterBreaker());
+
 import { mobMenu } from './mobile-menu';
 import { onPageStart } from './startPageGalleryRender';
 import './theme';
