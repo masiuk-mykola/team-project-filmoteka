@@ -10,6 +10,10 @@ export default class getMoviesApi {
     this.genresPath = `/genre/movie/list`;
     this.fullInfoPath = `/movie/`;
     this.moviesSearchPath = `/search/movie`;
+
+    this.discover = '/discover/movie';
+    this.sortBy = '';
+    this.sortGenre = '';
   }
 
   async getStartMovies() {
@@ -43,6 +47,29 @@ export default class getMoviesApi {
       const fullMovieInfo = await axios.get(url);
 
       return fullMovieInfo.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getMovieByPop() {
+    const url = `${this.base_url}${this.discover}${this.key}&sort_by=${this.sortBy}&page=${this.page}`;
+
+    try {
+      const movieByPop = await axios.get(url);
+      return movieByPop.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getMovieByGenre() {
+    const url = `${this.base_url}${this.discover}${this.key}&with_genres=${this.sortGenre}&page=${this.page}`;
+
+    try {
+      const movieByGenre = await axios.get(url);
+
+      return movieByGenre.data;
     } catch (error) {
       console.log(error);
     }
