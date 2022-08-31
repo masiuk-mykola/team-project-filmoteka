@@ -10,12 +10,21 @@
   animation: gradient 5s ease infinite;
   box-shadow: inset 2px 2px 10px var(--accent-color);
 
+
+  select {
+    background: transparent;
+    color: #fff;
+  }
+  
+  
+
   .library-empty__btn:hover {
       color: var(--white-text);
       background-color: transparent;
       border: 1px solid var(--white-text);
   
       font-weight: 500;
+
     }
 }
 
