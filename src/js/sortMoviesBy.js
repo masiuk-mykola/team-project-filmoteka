@@ -14,7 +14,6 @@ const headerClass = document.querySelector('header');
 const filmList = document.querySelector('.film_list');
 
 headerClass.setAttribute('id', 'trend');
-
 select.addEventListener('change', selectHandler);
 
 let sortby;
@@ -89,7 +88,6 @@ function paginate(evt) {
 export { sortby };
 
 let sortgenre;
-
 const selectgenre = document.getElementById('genre');
 selectgenre.addEventListener('change', selectGenreHandler);
 
