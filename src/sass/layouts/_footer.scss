@@ -1,8 +1,9 @@
 .footer {
-  position: relative;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background-color: var(--pagination-btn-color);
+    z-index: 1;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: var(--pagination-btn-color);
 }
 .footer__section-down {
   margin-top: 10px;
