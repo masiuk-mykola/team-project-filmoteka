@@ -42,10 +42,19 @@
 .theme-switch {
   display: flex;
   position: absolute;
-  bottom: 10%;
+  top: -43px;
   right: 50%;
   transform: translate(50%, 10%);
 }
+
+.theme-switch.library {
+  display: flex;
+  position: absolute;
+  top: 17px;
+  right: 50%;
+  transform: translate(50%, 10%);
+}
+
 .theme-switch-icon {
   fill: var(--accent-color);
   color: currentColor;

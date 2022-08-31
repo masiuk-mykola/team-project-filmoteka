@@ -1,5 +1,41 @@
 <main>
-  <section class="section">
+  <section class="section container">
+    <div class="theme-switch library">
+      <svg
+        class="theme-switch-icon"
+        width="20px"
+        height="20px"
+        role="img"
+        aria-label="icon moon"
+      >
+        <use href="./images/sprite.svg#icon-sun"></use>
+      </svg>
+  
+      <div class="theme-switch-control">
+        <input
+          class="theme-switch-toggle"
+          type="checkbox"
+          name="theme"
+          id="theme-switch-toggle"
+          aria-label="theme switcher"
+        />
+        <label
+          aria-hidden="true"
+          class="theme-switch-track"
+          for="theme-switch-toggle"
+        ></label>
+        <div aria-hidden="true" class="theme-switch-marker"></div>
+      </div>
+  
+      <svg
+        class="theme-switch-icon"
+        width="20px"
+        height="20px"
+        aria-label="icon moon"
+      >
+        <use href="./images/sprite.svg#icon-moon"></use>
+      </svg>
+    </div>    
     <h2 class="visually-hidden">Movies list</h2>
     <div class="container">
       <div class="library__container"></div>
