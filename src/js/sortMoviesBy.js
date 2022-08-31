@@ -44,46 +44,46 @@ function selectHandler(e) {
   }
 }
 
-pagContainer.addEventListener('click', paginate);
+// pagContainer.addEventListener('click', paginate);
 
-function paginate(evt) {
-  if (parseInt(evt.target.id) === getMovies.page) return;
-  if (evt.target.classList.contains('pag-btn')) {
-    getMovies.page = parseInt(evt.target.id);
-    clearGallery();
-    loadFromTop();
-    getMovies.getMovieByPop().then(movies => {
-      appendMoviesMarkup(movies.results);
-    });
-  }
-  if (
-    evt.target.classList.contains('move-left') ||
-    evt.target.classList.contains('move-right')
-  ) {
-    getMovies.page = parseInt(evt.target.id);
-    clearGallery();
-    loadFromTop();
-    getMovies.getMovieByPop().then(movies => {
-      appendMoviesMarkup(movies.results);
-    });
-  }
-  if (evt.target.classList.contains('to-start')) {
-    getMovies.page = 1;
-    clearGallery();
-    loadFromTop();
-    getMovies.getMovieByPop().then(movies => {
-      appendMoviesMarkup(movies.results);
-    });
-  }
-  if (evt.target.classList.contains('to-end')) {
-    getMovies.page = parseInt(evt.target.id);
-    clearGallery();
-    loadFromTop();
-    getMovies.getMovieByPop().then(movies => {
-      appendMoviesMarkup(movies.results);
-    });
-  }
-}
+// function paginate(evt) {
+//   if (parseInt(evt.target.id) === getMovies.page) return;
+//   if (evt.target.classList.contains('pag-btn')) {
+//     getMovies.page = parseInt(evt.target.id);
+//     clearGallery();
+//     loadFromTop();
+//     getMovies.getMovieByPop().then(movies => {
+//       appendMoviesMarkup(movies.results);
+//     });
+//   }
+//   if (
+//     evt.target.classList.contains('move-left') ||
+//     evt.target.classList.contains('move-right')
+//   ) {
+//     getMovies.page = parseInt(evt.target.id);
+//     clearGallery();
+//     loadFromTop();
+//     getMovies.getMovieByPop().then(movies => {
+//       appendMoviesMarkup(movies.results);
+//     });
+//   }
+//   if (evt.target.classList.contains('to-start')) {
+//     getMovies.page = 1;
+//     clearGallery();
+//     loadFromTop();
+//     getMovies.getMovieByPop().then(movies => {
+//       appendMoviesMarkup(movies.results);
+//     });
+//   }
+//   if (evt.target.classList.contains('to-end')) {
+//     getMovies.page = parseInt(evt.target.id);
+//     clearGallery();
+//     loadFromTop();
+//     getMovies.getMovieByPop().then(movies => {
+//       appendMoviesMarkup(movies.results);
+//     });
+//   }
+// }
 
 export { sortby };
 

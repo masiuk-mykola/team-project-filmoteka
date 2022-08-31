@@ -48,44 +48,44 @@ export function onSearchFormSubmit(evt) {
     );
   });
 
-  pagContainer.addEventListener('click', paginate);
+  // pagContainer.addEventListener('click', paginate);
 
-  function paginate(evt) {
-    if (parseInt(evt.target.id) === searchMoviesApi.page) return;
-    if (evt.target.classList.contains('pag-btn')) {
-      searchMoviesApi.page = parseInt(evt.target.id);
-      clearGallery();
-      loadFromTop();
-      searchMoviesApi.getSearchMovies().then(movies => {
-        appendMoviesMarkup(movies.results);
-      });
-    }
-    if (
-      evt.target.classList.contains('move-left') ||
-      evt.target.classList.contains('move-right')
-    ) {
-      searchMoviesApi.page = parseInt(evt.target.id);
-      clearGallery();
-      loadFromTop();
-      searchMoviesApi.getSearchMovies().then(movies => {
-        appendMoviesMarkup(movies.results);
-      });
-    }
-    if (evt.target.classList.contains('to-start')) {
-      searchMoviesApi.page = 1;
-      clearGallery();
-      loadFromTop();
-      searchMoviesApi.getSearchMovies().then(movies => {
-        appendMoviesMarkup(movies.results);
-      });
-    }
-    if (evt.target.classList.contains('to-end')) {
-      searchMoviesApi.page = parseInt(evt.target.id);
-      clearGallery();
-      loadFromTop();
-      searchMoviesApi.getSearchMovies().then(movies => {
-        appendMoviesMarkup(movies.results);
-      });
-    }
-  }
+  // function paginate(evt) {
+  //   if (parseInt(evt.target.id) === searchMoviesApi.page) return;
+  //   if (evt.target.classList.contains('pag-btn')) {
+  //     searchMoviesApi.page = parseInt(evt.target.id);
+  //     clearGallery();
+  //     loadFromTop();
+  //     searchMoviesApi.getSearchMovies().then(movies => {
+  //       appendMoviesMarkup(movies.results);
+  //     });
+  //   }
+  //   if (
+  //     evt.target.classList.contains('move-left') ||
+  //     evt.target.classList.contains('move-right')
+  //   ) {
+  //     searchMoviesApi.page = parseInt(evt.target.id);
+  //     clearGallery();
+  //     loadFromTop();
+  //     searchMoviesApi.getSearchMovies().then(movies => {
+  //       appendMoviesMarkup(movies.results);
+  //     });
+  //   }
+  //   if (evt.target.classList.contains('to-start')) {
+  //     searchMoviesApi.page = 1;
+  //     clearGallery();
+  //     loadFromTop();
+  //     searchMoviesApi.getSearchMovies().then(movies => {
+  //       appendMoviesMarkup(movies.results);
+  //     });
+  //   }
+  //   if (evt.target.classList.contains('to-end')) {
+  //     searchMoviesApi.page = parseInt(evt.target.id);
+  //     clearGallery();
+  //     loadFromTop();
+  //     searchMoviesApi.getSearchMovies().then(movies => {
+  //       appendMoviesMarkup(movies.results);
+  //     });
+  //   }
+  // }
 }
