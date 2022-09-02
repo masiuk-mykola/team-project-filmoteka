@@ -3,6 +3,7 @@ import { genresArray } from './moviesGenres';
 const moviesGallery = document.querySelector('.film_list');
 
 function appendMoviesMarkup(movies) {
+  clearGallery();
   movies.forEach(movie => {
     let moviePoster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if (movie.poster_path === null) {
@@ -41,7 +42,5 @@ function getGenres(ids) {
 function clearGallery() {
   moviesGallery.innerHTML = '';
 }
-
-// export { appendMoviesMarkup, clearGallery };
 
 export { appendMoviesMarkup, moviesGallery, clearGallery };
