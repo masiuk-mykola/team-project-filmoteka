@@ -15,14 +15,8 @@ function onPageStart() {
   getMovies.getStartMovies().then(movies => {
     appendMoviesMarkup(movies.results);
 
-    startPagination.clearPagContainer();
     startPagination.create(movies.total_pages, 5, getMovies, get);
   });
 }
 
-function loadFromTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-export { onPageStart, loadFromTop };
+export { onPageStart };

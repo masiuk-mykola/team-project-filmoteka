@@ -41,7 +41,6 @@ function selectHandler(e) {
       }
       //
 
-      sortPagination.clearPagContainer();
       sortPagination.create(data.total_pages, 5, getMovies, sortPop);
     });
   } else {
@@ -84,7 +83,6 @@ function selectGenreHandler(e) {
       }
       //
 
-      sortPagination.clearPagContainer();
       sortPagination.create(data.total_pages, 5, getMovies, sortGenre);
     });
   } else {

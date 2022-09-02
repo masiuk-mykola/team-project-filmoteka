@@ -1,5 +1,3 @@
-import { clearGallery } from './moviesMarkup';
-import { loadFromTop } from './startPageGalleryRender';
 const pagContainer = document.querySelector('.pag-container');
 
 export default class Pagination {
@@ -93,7 +91,8 @@ export default class Pagination {
       activeBtn.classList.remove('pag-btn-active');
 
       api.page = parseInt(evt.target.id);
-      loadFromTop();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
       apiMethod();
     }
 
@@ -123,7 +122,8 @@ export default class Pagination {
       appendPagBtnsMarkup(btnsArray, pagesShown, current_page);
 
       api.page = parseInt(evt.target.id);
-      loadFromTop();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
       apiMethod();
     }
 
@@ -146,7 +146,8 @@ export default class Pagination {
       appendPagBtnsMarkup(btnsArray, pagesShown, current_page);
 
       api.page = parseInt(evt.target.id);
-      loadFromTop();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
       apiMethod();
     }
 
@@ -162,7 +163,8 @@ export default class Pagination {
       moveLeftBtn.id = 1;
 
       api.page = 1;
-      loadFromTop();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
       apiMethod();
     }
 
@@ -179,7 +181,8 @@ export default class Pagination {
       appendPagBtnsMarkup(btnsArray, pagesShown, current_page);
 
       api.page = parseInt(evt.target.id);
-      loadFromTop();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
       apiMethod();
     }
   }
