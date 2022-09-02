@@ -39,9 +39,11 @@ export default class modalMarkupApi {
       </svg>
         </button>
 
-            <img class="modal-img" id=${id} src="https://image.tmdb.org/t/p/w500${poster_path}" alt=${
-      title || original_title || name
-    } width="370" height="470">
+            <img class="modal-img" id=${id} src='${
+      poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : `https://qqcinema.com/wp-content/uploads/no-poster.png`
+    }' alt=${title || original_title || name} width="370" height="470">
 
         </div>
         <div class="film-info">
