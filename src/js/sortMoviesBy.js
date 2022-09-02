@@ -1,13 +1,10 @@
 import getMoviesApi from './getMoviesApi';
 import { appendMoviesMarkup } from './moviesMarkup';
-import { clearGallery } from './moviesMarkup';
-import { loadFromTop } from './startPageGalleryRender';
 import { onPageStart } from './startPageGalleryRender';
-import { clearPagContainer, createPagination } from './pagination';
-
-const pagContainer = document.querySelector('.pag-container');
+import Pagination from './paginationApi';
 
 const getMovies = new getMoviesApi();
+const sortPagination = new Pagination();
 
 const select = document.getElementById('sort');
 const headerClass = document.querySelector('header');
@@ -33,9 +30,18 @@ function selectHandler(e) {
       const movies = data.results;
 
       appendMoviesMarkup(movies);
-      clearPagContainer();
 
-      createPagination(data.total_pages, 5);
+      // Допоміжна функція для передачі у пагінацію
+      function sortPop() {
+        getMovies.getMovieByPop().then(data => {
+          const movies = data.results;
+
+          appendMoviesMarkup(movies);
+        });
+      }
+      //
+
+      sortPagination.create(data.total_pages, 5, getMovies, sortPop);
     });
   } else {
     filmList.innerHTML = '';
@@ -43,47 +49,6 @@ function selectHandler(e) {
     onPageStart();
   }
 }
-
-// pagContainer.addEventListener('click', paginate);
-
-// function paginate(evt) {
-//   if (parseInt(evt.target.id) === getMovies.page) return;
-//   if (evt.target.classList.contains('pag-btn')) {
-//     getMovies.page = parseInt(evt.target.id);
-//     clearGallery();
-//     loadFromTop();
-//     getMovies.getMovieByPop().then(movies => {
-//       appendMoviesMarkup(movies.results);
-//     });
-//   }
-//   if (
-//     evt.target.classList.contains('move-left') ||
-//     evt.target.classList.contains('move-right')
-//   ) {
-//     getMovies.page = parseInt(evt.target.id);
-//     clearGallery();
-//     loadFromTop();
-//     getMovies.getMovieByPop().then(movies => {
-//       appendMoviesMarkup(movies.results);
-//     });
-//   }
-//   if (evt.target.classList.contains('to-start')) {
-//     getMovies.page = 1;
-//     clearGallery();
-//     loadFromTop();
-//     getMovies.getMovieByPop().then(movies => {
-//       appendMoviesMarkup(movies.results);
-//     });
-//   }
-//   if (evt.target.classList.contains('to-end')) {
-//     getMovies.page = parseInt(evt.target.id);
-//     clearGallery();
-//     loadFromTop();
-//     getMovies.getMovieByPop().then(movies => {
-//       appendMoviesMarkup(movies.results);
-//     });
-//   }
-// }
 
 export { sortby };
 
@@ -107,9 +72,18 @@ function selectGenreHandler(e) {
       const movies = data.results;
 
       appendMoviesMarkup(movies);
-      clearPagContainer();
 
-      createPagination(data.total_pages, 5);
+      // Допоміжна функція для передачі у пагінацію
+      function sortGenre() {
+        getMovies.getMovieByGenre().then(data => {
+          const movies = data.results;
+
+          appendMoviesMarkup(movies);
+        });
+      }
+      //
+
+      sortPagination.create(data.total_pages, 5, getMovies, sortGenre);
     });
   } else {
     filmList.innerHTML = '';
